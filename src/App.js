@@ -11,7 +11,7 @@ function App () {
   const [data, setData] = useState({})
   const [location, setLocation] = useState({})
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=1bc5302093eb649cce8be8f2bf4766a3`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=1bc5302093eb649cce8be8f2bf4766a3`
 
 
   const searchLocation = (event) => {
@@ -44,21 +44,21 @@ function App () {
             <p>{data.name}</p>
           </div>
           <div className='temp'>
-            <h1>80</h1>
+            <h1>{data.main.temp}</h1>
           </div>
           <div className='description'>
-            <p>Cloudy</p>
+            <p>{data.weather[0].description}</p>
           </div>
         </div>
         <div className='bottom'>
           <div className='feels'>
-            <p>81</p>
+            <p>{data.main.feels_like}</p>
           </div>
           <div className='humidity'>
-            <p>50</p>
+            <p>{data.main.humidity}</p>
           </div>
           <div className='wind'>
-            <p>12 MPH</p>
+            <p>{data.wind.speed} MPH</p>
           </div>
         </div>
       </div>
